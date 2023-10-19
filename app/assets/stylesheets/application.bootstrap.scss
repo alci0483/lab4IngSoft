@@ -1,2 +1,8 @@
 @import 'bootstrap/scss/bootstrap';
 @import 'bootstrap-icons/font/bootstrap-icons';
+
+/* Agregar estilos para "Twiteros Destacados" */
+.twitero-destacado {
+  color: red; /* Color de texto rojo */
+  font-weight: bold; /* Texto en negrita */
+}

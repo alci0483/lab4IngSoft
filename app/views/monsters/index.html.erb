@@ -1,1 +1,49 @@
-<%# Update me %><%= @monsters.inspect %>
+<!-- app/views/monsters/index.html.erb -->
+
+<!-- Encabezado de la página -->
+<h1>Listado de Monstruos</h1>
+
+<!-- Creación de una tabla HTML con la clase "table" para darle estilo con Bootstrap -->
+<table class="table">
+  <!-- Encabezado de la tabla -->
+  <thead>
+    <!-- Fila de encabezado de la tabla -->
+    <tr>
+      <!-- Celda de encabezado "Nombre" -->
+      <th>Nombre</th>
+      <!-- Celda de encabezado "tipo" -->
+      <th>Tipo</th>
+      <!-- Celda de encabezado "Descripción" -->
+      <th>Descripción</th>
+
+      <!-- Puedes agregar más celdas de encabezado aquí si es necesario -->
+
+    </tr>
+  </thead>
+  <!-- Cuerpo de la tabla que contiene los datos -->
+  <tbody>
+    <!-- Inicio de un bucle que recorre todos los monstruos en la variable @monsters -->
+    <% @monsters.each do |monster| %>
+      <!-- Fila que representa un monstruo -->
+      <tr>
+        <!-- Celda con el nombre del monstruo como un enlace a la página del monstruo -->
+        <td><%= link_to monster.name, monster %></td>
+
+        <!-- Celda con informacion de si es un twitero destacado  -->
+        <% if monster.tweets.count > 1 %>
+          <td class="twitero-destacado "> Twitero Destacado </td>
+        <%else%>
+          <td> - - - </td>
+        <%end%>
+
+        <!-- Celda con la descripción del monstruo -->
+        <td><%= monster.description %></td>
+
+        <!-- Puedes agregar más celdas aquí para otros atributos del monstruo si es necesario -->
+
+      </tr>
+      <!-- Fin de la fila que representa un monstruo -->
+    <% end %>
+    <!-- Fin del bucle que recorre los monstruos -->
+  </tbody>
+</table>

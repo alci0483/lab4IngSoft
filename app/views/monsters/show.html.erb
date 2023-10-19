@@ -1,1 +1,26 @@
-<%# Update me %><%= @monster.inspect %>
+<!-- app/views/monsters/show.html.erb -->
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <!-- Información del monstruo-->
+      <div class="container">
+        <h1><%= @monster.name %></h1>
+        <p><%= @monster.description %></p>
+      </div>
+      <!-- Botón de eliminación -->
+      <%= form_with(model: @monster, local: true, method: :delete, data: { confirm: "¿Estás seguro de que deseas eliminar a este monstruo?" }) do |form| %>
+        <%= form.submit "Eliminar monstruo", class: "btn btn-danger" %>
+      <% end %>
+    </div>
+    <div class="col-md-6">
+      <!-- Listado de tweets del monstruo -->
+      <h2>Tweets de <%= @monster.name %></h2>
+      <ul>
+        <% @monster.tweets.each do |tweet| %>
+          <li><%= tweet.content %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>
